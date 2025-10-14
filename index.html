@@ -1,0 +1,73 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agenda Multicapas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Agenda Web</h1>
+      <p class="sub">Mis contactos — Keren Almonte Guilamo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="panel form-panel" aria-labelledby="form-title">
+      <h2 id="form-title">Agregar Contacto</h2>
+      <form id="addContactForm" novalidate>
+        <label>
+          Nombre
+          <input type="text" id="nombre" name="nombre" required />
+        </label>
+        <label>
+          Apellido
+          <input type="text" id="apellido" name="apellido" required />
+        </label>
+        <label>
+          Teléfono
+          <input type="tel" id="telefono" name="telefono" required pattern="[0-9()+\-\s]{4,}" />
+        </label>
+        <div class="form-actions">
+          <button type="submit" id="btnAdd">Agregar</button>
+          <button type="reset">Limpiar</button>
+        </div>
+      </form>
+
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+      <div class="controls-compact" style="display:none;">
+        <input id="search" placeholder="Buscar..." aria-label="Buscar contactos" />
+        <button id="refresh" title="Refrescar">↻</button>
+      </div>
+
+      <footer class="footer-small">Agenda Web • Keren Almonte Guilamo</footer>
+    </aside>
+
+    <section class="panel list-panel" aria-labelledby="lista-title">
+<div class="panel-header">
+  <h2 id="lista-title">Contactos</h2>
+  <div class="header-controls">
+    <input id="searchList" placeholder="Buscar contactos..." aria-label="Buscar contactos" />
+    <div class="pager" aria-label="Paginación">
+      <button id="prevPage" title="Página anterior">◀</button>
+      <span id="pageInfo">Página 1</span>
+      <button id="nextPage" title="Página siguiente">▶</button>
+      <button id="refresh" title="Refrescar">↻</button>
+    </div>
+  </div>
+</div>
+
+      <div class="list-wrap" id="listWrap">
+        <div id="grid" class="grid" aria-live="polite">
+        </div>
+        <p id="emptyState" class="empty">No hay contactos cargados.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
